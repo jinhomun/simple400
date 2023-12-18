@@ -11,6 +11,10 @@ app.use("/image", express.static("./image"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// express.router
+app.use("/api/post", require("./router/post.js"))
+app.use("/api/user", require("./router/user.js"))
+
 app.listen(port, () => {
     mongoose
         .connect(config.mongoURI)
